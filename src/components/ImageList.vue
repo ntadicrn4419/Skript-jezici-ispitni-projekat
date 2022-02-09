@@ -38,10 +38,10 @@
 
     data() {
       return {
-        fields: ['title', 'artistDisplayName', 'objectDate', 'isHighlight'],
+        fields: ['name', 'location', 'startDate', 'endDate'],
         items: [],
         currentPage: 1,
-        perPage: 10
+        perPage: 3
       }
     },
     
@@ -51,7 +51,7 @@
 
     watch: {
       currentPage(nVal, oVal) {
-        this.objects.slice(nVal * 10, (nVal + 1) * 10).map( obj => {
+        this.objects.slice(nVal * 3, (nVal + 1) * 3).map( obj => {
           fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${obj}`)
             .then( obj => obj.json())
               .then( res => this.items.push(res));
@@ -60,7 +60,7 @@
     },
 
     mounted() {
-      this.objects.slice(this.currentPage * 10, (this.currentPage + 1) * 10).map( obj => {
+      this.objects.slice(this.currentPage * 3, (this.currentPage + 1) * 3).map( obj => {
         fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${obj}`)
           .then( obj => obj.json())
             .then( res => this.items.push(res));

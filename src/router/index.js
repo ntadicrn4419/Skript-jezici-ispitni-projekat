@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Department from '../views/Department.vue'
 import Search from '../views/Search.vue'
 import Single from '../views/Single.vue'
+import Register from '../views/Register.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +29,16 @@ const routes = [
     path: '/single/:id',
     name: 'Single',
     component: Single
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 
